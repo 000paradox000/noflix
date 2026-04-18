@@ -1,2 +1,3 @@
-# noflix
-PoC for testing authorization and authentication in django
+# NoFLIX
+
+PoC for testing authorization and authentication in Django.
