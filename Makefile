@@ -58,10 +58,14 @@ django.shell.%:
 django.urls.%:
 	$(PYTHON) manage.py show_urls --settings=config.settings.$*
 
+django.create_admin_user.%:
+	$(PYTHON) manage.py create_admin_user --settings=config.settings.$*
+
 django.init.%:
 	$(MAKE) requirements.install.$*
 	$(MAKE) django.migrations.$*
 	$(MAKE) django.collectstatic.$*
+	$(MAKE) django.create_admin_user.$*
 
 django.reset.%:
 	$(PYTHON) manage.py reset_db --noinput --settings=config.settings.$*

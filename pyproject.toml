@@ -36,3 +36,8 @@ exclude_dirs = [
     ".venv",
     "config/settings/original.py",
 ]
+
+[tool.coverage.run]
+omit = [
+    "manage.py",
+]
