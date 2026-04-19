@@ -3,10 +3,17 @@ import environ
 from .original import *
 
 # -----------------------------------------------------------------------------
+# Project Configuration
+
+PROJECT_PREFIX = "noflix"
+SITE_TITLE = "NoFLIX"
+SITE_HEADER = "NoFLIX"
+
+# -----------------------------------------------------------------------------
 # Paths
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-PROJECT_DIR = BASE_DIR / "noflix"
+PROJECT_DIR = BASE_DIR / PROJECT_PREFIX
 
 # -----------------------------------------------------------------------------
 # Environment variables
@@ -35,8 +42,9 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    "noflix.common.apps.CommonConfig",
-    "noflix.users.apps.UsersConfig",
+    f"{PROJECT_PREFIX}.common.apps.CommonConfig",
+    f"{PROJECT_PREFIX}.users.apps.UsersConfig",
+    f"{PROJECT_PREFIX}.movies.apps.MoviesConfig",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -83,12 +91,6 @@ OUTPUT_FILES_DIR = PROJECT_DIR / "output"
 EMAIL_DIR = TEMPORAL_DIR / "email"
 
 # -----------------------------------------------------------------------------
-# Site title
-
-SITE_TITLE = "NoFLIX"
-SITE_HEADER = "NoFLIX"
-
-# -----------------------------------------------------------------------------
 # Test
 
-TEST_RUNNER = "noflix.common.tests.runner.TestRunner"
+TEST_RUNNER = f"{PROJECT_PREFIX}.common.tests.runner.TestRunner"

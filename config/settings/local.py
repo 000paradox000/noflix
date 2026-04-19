@@ -21,7 +21,7 @@ SITE_HEADER = f"[{ENVIRONMENT_NAME}] {SITE_HEADER}"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": PROJECT_DIR / "db" / "noflix.db",
+        "NAME": PROJECT_DIR / "db" / f"{PROJECT_PREFIX}.db",
     },
 }
 

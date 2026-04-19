@@ -77,6 +77,10 @@ django.reset.%:
 django.test.%:
 	$(PYTHON) manage.py test -v $(TEST_VERBOSITY) --settings=config.settings.$*
 
+django.test.apps.local:
+	$(PYTHON) manage.py test -v $(TEST_VERBOSITY) -k AppsTest \
+		--settings=config.settings.$*
+
 django.coverage.%:
 	$(COVERAGE) erase
 	$(COVERAGE) run manage.py test --settings=config.settings.$*

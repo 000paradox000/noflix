@@ -14,3 +14,13 @@ series, then play or stop the content.
 
 This platform is a much lighter version of a streaming service, focused on a
 simplified data model for users, movies, and playbacks.
+
+## Applications
+
+| Name    | Description                                             |
+|---------|---------------------------------------------------------|
+| common  | Shared utilities, base models, and admin configuration  |
+| users   | User management and related functionality               |
+| movies  | Core domain application                                 |
+
+Test: `make django.test.apps.local`
