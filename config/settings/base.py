@@ -87,3 +87,8 @@ EMAIL_DIR = TEMPORAL_DIR / "email"
 
 SITE_TITLE = "NoFLIX"
 SITE_HEADER = "NoFLIX"
+
+# -----------------------------------------------------------------------------
+# Test
+
+TEST_RUNNER = "noflix.common.tests.runner.TestRunner"
