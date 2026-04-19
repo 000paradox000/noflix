@@ -1,0 +1,71 @@
+exclude: >
+  (?x)^(
+    static_root|
+    static|
+    media|
+    files|
+    temporal|
+    migrations|
+    build|
+    dist|
+    node_modules
+  )$
+
+default_language_version:
+  python: python3.14
+
+default_stages:
+  - pre-commit
+
+fail_fast: false
+
+repos:
+  # -------------------------------------------------
+  # Core sanity / repository hygiene
+  # -------------------------------------------------
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-ast
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+      - id: check-json
+      - id: check-yaml
+      - id: debug-statements
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: check-added-large-files
+        args:
+          - --maxkb=100000
+
+  # -------------------------------------------------
+  # Ruff: linting, imports, modernization
+  # -------------------------------------------------
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.11
+    hooks:
+      - id: ruff
+        args:
+          - --fix
+          - --exit-non-zero-on-fix
+      - id: ruff-format
+
+  # -------------------------------------------------
+  # Security scanning
+  # -------------------------------------------------
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.9.4
+    hooks:
+      - id: bandit
+        name: bandit (security checks)
+        args:
+          - -r
+          - .
+          - -c
+          - pyproject.toml
+        files: \.py$
+        pass_filenames: false

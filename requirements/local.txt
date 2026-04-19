@@ -1,0 +1,6 @@
+# ----------------------------------------------------------------------
+# Local requirements
+# Extends base dependencies with local development extras.
+# ----------------------------------------------------------------------
+
+-r base.txt
