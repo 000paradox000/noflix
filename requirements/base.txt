@@ -1,0 +1,16 @@
+# ----------------------------------------------------------------------
+# Base requirements
+# Core dependencies shared across all environments.
+# ----------------------------------------------------------------------
+
+# Web framework
+Django
+
+# Development tools
+pre-commit
+ipython
+django-extensions
+coverage
+
+# Environment variables
+django-environ
